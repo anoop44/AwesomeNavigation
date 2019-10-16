@@ -1,2 +1,2 @@
 rootProject.name='AwesomeBottomNavigation'
-include ':app'
+include ':app', 'awesome-bottom-navigation'
