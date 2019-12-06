@@ -1,8 +1,7 @@
-package ss.anoop.awesomebottomnavigation.demo
+package ss.anoop.awesomenavigation.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ss.anoop.awesomebottomnavigation.demo.R
 
 class DemoActivity : AppCompatActivity() {
 

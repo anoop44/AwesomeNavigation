@@ -1,4 +1,4 @@
-package ss.anoop.awesomebottomnavigation
+package ss.anoop.awesomenavigation
 
 import org.junit.Test
 
