@@ -3,6 +3,8 @@
 
 AwesomeNavigation is a collection of navigation components that can be used as bottom navigations as well as top navigation(Tab bar). Not all components in this are suitable for tab bar. As of now there is only one component, but more components will be added soon and option to choose the type you wanted to use will be added soon
 
+![gif of AwesomeNavigation in use](https://raw.githubusercontent.com/anoop44/AwesomeNavigation/master/art/awesome-navigation-style1-demo.gif)
+
 ## Adding to project
 
 ### Gradle 
