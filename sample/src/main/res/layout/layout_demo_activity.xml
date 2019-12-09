@@ -6,11 +6,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ss.anoop.awesomenavigation.AwesomeNavigation
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:background="#fff"
         app:navItems="@menu/bottom_navigation_items"
-        app:textSize="14sp"/>
+        app:textSize="14sp"
+        app:iconSize="24dp"
+        app:textColor="#000"
+        app:spacing="4dp"
+        app:itemChangeDuration="500"/>
 
 </RelativeLayout>

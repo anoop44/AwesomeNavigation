@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:title="Home"/>
     <item
+        android:id="@+id/chat"
         android:icon="@drawable/ic_bubbles"
         android:title="Chat"/>
     <item
+        android:id="@+id/cart"
         android:icon="@drawable/ic_cart"
         android:title="Cart"/>
     <item
+        android:id="@+id/profile"
         android:icon="@drawable/ic_user"
         android:title="Profile"/>
 </menu>
