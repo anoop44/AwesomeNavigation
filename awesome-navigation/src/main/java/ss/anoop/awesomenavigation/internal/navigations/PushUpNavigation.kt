@@ -13,13 +13,15 @@ import android.view.animation.LinearInterpolator
 import ss.anoop.awesomenavigation.internal.NavigationDelegate
 import ss.anoop.awesomenavigation.internal.delegates.DataDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ConfigDelegate
+import ss.anoop.awesomenavigation.internal.delegates.ListenerDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ViewDelegate
 import ss.anoop.awesomenavigation.internal.extensions.asRect
 
 class PushUpNavigation(
     override val viewDelegate: ViewDelegate,
     override val dataDelegate: DataDelegate,
-    override val configDelegate: ConfigDelegate
+    override val configDelegate: ConfigDelegate,
+    override val listenerDelegate: ListenerDelegate
 ) : NavigationDelegate {
 
     private val itemRects = mutableListOf<RectF>()
@@ -175,9 +177,16 @@ class PushUpNavigation(
 
     private fun onSelectItem(index: Int) {
         if (index == selectedItem) {
-
+            listenerDelegate.navigationListener?.onReselectNavigation(
+                dataDelegate.menuItems[index].id,
+                index
+            )
         } else {
             animateChange(selectedItem, index)
+            listenerDelegate.navigationListener?.onSelectNavigation(
+                dataDelegate.menuItems[index].id,
+                index
+            )
         }
     }
 

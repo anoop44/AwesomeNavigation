@@ -5,6 +5,7 @@ import android.content.res.XmlResourceParser
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import ss.anoop.awesomenavigation.internal.constant.MenuItemConstant.ATTRIBUTE_ICON
+import ss.anoop.awesomenavigation.internal.constant.MenuItemConstant.ATTRIBUTE_ID
 import ss.anoop.awesomenavigation.internal.constant.MenuItemConstant.ATTRIBUTE_SELECTED_ICON
 import ss.anoop.awesomenavigation.internal.constant.MenuItemConstant.ATTRIBUTE_TITLE
 import ss.anoop.awesomenavigation.internal.constant.MenuItemConstant.MENU_ITEM_TAG
@@ -33,8 +34,10 @@ class MenuItemParser(private val context: Context) {
         var title = ""
         var icon: Drawable = GradientDrawable()
         var selectedIcon: Drawable? = null
+        var id = 0
         for (index in 0 until parser.attributeCount) {
             when (parser.getAttributeName(index)) {
+                ATTRIBUTE_ID -> id = parser.getAttributeResourceValue(index, 0)
                 ATTRIBUTE_TITLE -> title = try {
                     context.getString(parser.getAttributeResourceValue(index, 0))
                 } catch (exception: Exception) {
@@ -46,6 +49,11 @@ class MenuItemParser(private val context: Context) {
                     iconDecodeHelper.getIconDrawable(parser.getAttributeNameResource(index))
             }
         }
-        return MenuItem(title, icon, selectedIcon)
+        return MenuItem(
+            id,
+            title,
+            icon,
+            selectedIcon
+        )
     }
 }

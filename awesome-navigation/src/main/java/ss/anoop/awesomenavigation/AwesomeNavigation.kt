@@ -10,6 +10,7 @@ import ss.anoop.awesomenavigation.internal.*
 import ss.anoop.awesomenavigation.internal.NavigationDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ConfigDelegate
 import ss.anoop.awesomenavigation.internal.delegates.DataDelegate
+import ss.anoop.awesomenavigation.internal.delegates.ListenerDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ViewDelegate
 import ss.anoop.awesomenavigation.internal.navigations.PushUpNavigation
 import ss.anoop.awesomenavigation.internal.utils.dpToPx
@@ -28,14 +29,16 @@ constructor(
 ),
     ViewDelegate,
     DataDelegate,
-    ConfigDelegate {
+    ConfigDelegate,
+    ListenerDelegate {
 
     private var navigationItems = emptyList<MenuItem>()
 
     private var navigationDelegate: NavigationDelegate = PushUpNavigation(
         viewDelegate = this,
         dataDelegate = this,
-        configDelegate = this
+        configDelegate = this,
+        listenerDelegate = this
     )
 
     override val width: Float
@@ -58,19 +61,24 @@ constructor(
 
     override val textColor: Int
         get() = _textColor
-    
+
     override val animationDuration: Long
         get() = _animationDuration
+
+    override val navigationListener: OnNavigationSelectedListener?
+        get() = _navigationListener
 
     private var _iconSize = dpToPx(24f, resources)
 
     private var _iconSpacing = dpToPx(4f, resources)
 
     private var _textSize = spToPx(12f, resources)
-    
+
     private var _textColor = Color.BLACK
 
     private var _animationDuration = 500L
+
+    private var _navigationListener: OnNavigationSelectedListener? = null
 
     init {
         attributeSet?.let(::initAttrs)
@@ -99,6 +107,10 @@ constructor(
         setOnTouchListener(onTouchListener)
     }
 
+    fun setOnNavigationSelectedListener(navigationSelectedListener: OnNavigationSelectedListener){
+        _navigationListener = navigationSelectedListener
+    }
+
     private fun initAttrs(attributeSet: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(
             attributeSet,
@@ -110,7 +122,8 @@ constructor(
             .parse(
                 typedArray.getResourceId(R.styleable.AwesomeNavigation_navItems, NO_ID)
             )
-        _animationDuration = typedArray.getInteger(R.styleable.AwesomeNavigation_itemChangeDuration, 500).toLong()
+        _animationDuration =
+            typedArray.getInteger(R.styleable.AwesomeNavigation_itemChangeDuration, 500).toLong()
         _iconSize = typedArray.getDimension(R.styleable.AwesomeNavigation_iconSize, _iconSize)
         _iconSpacing = typedArray.getDimension(R.styleable.AwesomeNavigation_spacing, _iconSpacing)
         _textSize = typedArray.getDimension(R.styleable.AwesomeNavigation_textSize, _textSize)

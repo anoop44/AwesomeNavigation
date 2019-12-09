@@ -4,6 +4,8 @@ object MenuItemConstant {
 
     const val MENU_ITEM_TAG = "item"
 
+    const val ATTRIBUTE_ID = "id"
+
     const val ATTRIBUTE_TITLE = "title"
 
     const val ATTRIBUTE_ICON = "icon"
