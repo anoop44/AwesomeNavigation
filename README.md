@@ -1,5 +1,4 @@
-# AwesomeNavigation
---------------------
+# AwesomeNavigation [ ![Download](https://api.bintray.com/packages/anoop44/maven/awesome-navigation/images/download.svg?version=1.1.0) ](https://bintray.com/anoop44/maven/awesome-navigation/1.1.0/link) <a href="https://android-arsenal.com/api?level=16"><img alt="API" src="https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat"/></a>
 
 AwesomeNavigation is a collection of navigation components that can be used as bottom navigations as well as top navigation(Tab bar). Not all components in this are suitable for tab bar. As of now there is only one component, but more components will be added soon and option to choose the type you wanted to use will be added soon
 
