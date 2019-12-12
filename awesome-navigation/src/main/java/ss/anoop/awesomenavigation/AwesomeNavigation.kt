@@ -107,8 +107,18 @@ constructor(
         setOnTouchListener(onTouchListener)
     }
 
-    fun setOnNavigationSelectedListener(navigationSelectedListener: OnNavigationSelectedListener){
+    fun setOnNavigationSelectedListener(navigationSelectedListener: OnNavigationSelectedListener) {
         _navigationListener = navigationSelectedListener
+    }
+
+    fun selectItem(position: Int) {
+        require(
+            position > -1 && position < navigationItems.size
+        ) {
+            "Invalid position"
+        }
+
+        navigationDelegate.selectItem(position)
     }
 
     private fun initAttrs(attributeSet: AttributeSet) {

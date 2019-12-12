@@ -19,4 +19,6 @@ internal interface NavigationDelegate {
     fun draw(canvas: Canvas)
 
     fun onSizeChanged()
+
+    fun selectItem(position: Int)
 }

@@ -91,6 +91,10 @@ class PushUpNavigation(
         )
     }
 
+    override fun selectItem(position: Int) {
+        onSelectItem(position)
+    }
+
     private fun getItemRectF(width: Float, index: Int) = RectF(
         index.times(width),
         0f,
