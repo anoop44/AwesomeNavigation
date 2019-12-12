@@ -1,4 +1,4 @@
 ext {
-    versionNameStr = "1.0"
-    versionNumber = 1000
+    versionNameStr = "1.1.0"
+    versionNumber = 1100
 }
