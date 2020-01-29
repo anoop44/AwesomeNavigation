@@ -10,5 +10,9 @@
         <attr name="itemSpacing" format="dimension" />
         <attr name="cornerRadius" format="dimension"/>
         <attr name="selectedColor" format="color"/>
+        <attr name="navStyle" format="enum">
+            <enum name="style1" value="0"/>
+            <enum name="style2" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>

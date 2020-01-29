@@ -17,7 +17,7 @@ import ss.anoop.awesomenavigation.internal.delegates.ListenerDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ViewDelegate
 import ss.anoop.awesomenavigation.internal.extensions.asRect
 
-class PushUpNavigation(
+class NavigationStyle1(
     override val viewDelegate: ViewDelegate,
     override val dataDelegate: DataDelegate,
     override val configDelegate: ConfigDelegate,

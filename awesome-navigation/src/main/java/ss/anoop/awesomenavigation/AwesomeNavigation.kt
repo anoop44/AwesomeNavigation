@@ -12,9 +12,8 @@ import ss.anoop.awesomenavigation.internal.delegates.ConfigDelegate
 import ss.anoop.awesomenavigation.internal.delegates.DataDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ListenerDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ViewDelegate
+import ss.anoop.awesomenavigation.internal.navigations.NavigationStyle1
 import ss.anoop.awesomenavigation.internal.navigations.NavigationStyle2
-import ss.anoop.awesomenavigation.internal.navigations.NavigationStyle3
-import ss.anoop.awesomenavigation.internal.navigations.PushUpNavigation
 import ss.anoop.awesomenavigation.internal.utils.dpToPx
 import ss.anoop.awesomenavigation.internal.utils.spToPx
 
@@ -36,7 +35,7 @@ constructor(
 
     private var navigationItems = emptyList<MenuItem>()
 
-    private var navigationDelegate: NavigationDelegate = NavigationStyle3(
+    private var navigationDelegate: NavigationDelegate = NavigationStyle1(
         viewDelegate = this,
         dataDelegate = this,
         configDelegate = this,
@@ -158,6 +157,15 @@ constructor(
         _itemSpacing = typedArray.getDimension(R.styleable.AwesomeNavigation_itemSpacing, _itemSpacing)
         _selectedColor = typedArray.getColor(R.styleable.AwesomeNavigation_selectedColor, _selectedColor)
         _cornerRadius = typedArray.getDimension(R.styleable.AwesomeNavigation_cornerRadius, _cornerRadius)
+        val styleIndex = typedArray.getInt(R.styleable.AwesomeNavigation_navStyle, 0)
+        selectNavigationStyle(styleIndex)
         typedArray.recycle()
+    }
+
+    private fun selectNavigationStyle(styleIndex: Int){
+        navigationDelegate = when(styleIndex){
+            0 -> NavigationStyle1(this, this, this, this)
+            else -> NavigationStyle2(this, this, this, this)
+        }
     }
 }
