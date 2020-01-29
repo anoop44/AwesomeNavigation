@@ -11,4 +11,10 @@ interface ConfigDelegate {
     val textColor: Int
 
     val animationDuration: Long
+
+    val itemSpacing: Float
+
+    val cornerRadius: Float
+
+    val selectionColor: Int
 }

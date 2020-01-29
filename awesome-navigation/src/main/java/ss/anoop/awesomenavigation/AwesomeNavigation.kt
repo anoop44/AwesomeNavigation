@@ -12,6 +12,8 @@ import ss.anoop.awesomenavigation.internal.delegates.ConfigDelegate
 import ss.anoop.awesomenavigation.internal.delegates.DataDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ListenerDelegate
 import ss.anoop.awesomenavigation.internal.delegates.ViewDelegate
+import ss.anoop.awesomenavigation.internal.navigations.NavigationStyle2
+import ss.anoop.awesomenavigation.internal.navigations.NavigationStyle3
 import ss.anoop.awesomenavigation.internal.navigations.PushUpNavigation
 import ss.anoop.awesomenavigation.internal.utils.dpToPx
 import ss.anoop.awesomenavigation.internal.utils.spToPx
@@ -34,7 +36,7 @@ constructor(
 
     private var navigationItems = emptyList<MenuItem>()
 
-    private var navigationDelegate: NavigationDelegate = PushUpNavigation(
+    private var navigationDelegate: NavigationDelegate = NavigationStyle3(
         viewDelegate = this,
         dataDelegate = this,
         configDelegate = this,
@@ -65,8 +67,17 @@ constructor(
     override val animationDuration: Long
         get() = _animationDuration
 
+    override val itemSpacing: Float
+        get() = _itemSpacing
+
     override val navigationListener: OnNavigationSelectedListener?
         get() = _navigationListener
+
+    override val cornerRadius: Float
+        get() = _cornerRadius
+
+    override val selectionColor: Int
+        get() = _selectedColor
 
     private var _iconSize = dpToPx(24f, resources)
 
@@ -77,6 +88,12 @@ constructor(
     private var _textColor = Color.BLACK
 
     private var _animationDuration = 500L
+
+    private var _itemSpacing = dpToPx(48f, resources)
+
+    private var _cornerRadius = 0f
+
+    private var _selectedColor = Color.WHITE
 
     private var _navigationListener: OnNavigationSelectedListener? = null
 
@@ -138,6 +155,9 @@ constructor(
         _iconSpacing = typedArray.getDimension(R.styleable.AwesomeNavigation_spacing, _iconSpacing)
         _textSize = typedArray.getDimension(R.styleable.AwesomeNavigation_textSize, _textSize)
         _textColor = typedArray.getColor(R.styleable.AwesomeNavigation_textColor, _textColor)
+        _itemSpacing = typedArray.getDimension(R.styleable.AwesomeNavigation_itemSpacing, _itemSpacing)
+        _selectedColor = typedArray.getColor(R.styleable.AwesomeNavigation_selectedColor, _selectedColor)
+        _cornerRadius = typedArray.getDimension(R.styleable.AwesomeNavigation_cornerRadius, _cornerRadius)
         typedArray.recycle()
     }
 }
