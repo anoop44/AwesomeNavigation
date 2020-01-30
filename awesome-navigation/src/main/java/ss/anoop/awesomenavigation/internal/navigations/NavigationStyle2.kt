@@ -207,7 +207,19 @@ class NavigationStyle2(
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         if (event?.actionMasked == MotionEvent.ACTION_UP) {
             itemRects.firstOrNull { it.contains(event.x, event.y) }?.let {
-                onSelectItem(itemRects.indexOf(it))
+                val index = itemRects.indexOf(it)
+                onSelectItem(index)
+                if(selectedItemIndex == index){
+                    listenerDelegate.navigationListener?.onReselectNavigation(
+                        dataDelegate.menuItems[index].id,
+                        index
+                    )
+                } else {
+                    listenerDelegate.navigationListener?.onSelectNavigation(
+                        dataDelegate.menuItems[index].id,
+                        index
+                    )
+                }
             }
         }
 
