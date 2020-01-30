@@ -3,7 +3,13 @@
 AwesomeNavigation is a collection of navigation components(styles) that can be used as bottom navigations as well as top navigation(Tab bar). Not all components in this are suitable for tab bar. As of now there is only two components, but more components will be added soon and option to choose the type you wanted to use will be added soon
 Each navigation component is referred as a style(style1, style2 etc). Which style to be used can be selected via the navStyle attribute in layout xml. Its takes values like `style1`, `style2` etc.
 
-![gif of AwesomeNavigation in use](https://raw.githubusercontent.com/anoop44/AwesomeNavigation/master/art/awesome-navigation-style1-demo.gif)
+### style1
+![gif of AwesomeNavigation style1](https://raw.githubusercontent.com/anoop44/AwesomeNavigation/master/art/awesome-navigation-style1-demo.gif)
+
+
+### style2
+![gif of AwesomeNavigation style2](https://raw.githubusercontent.com/anoop44/AwesomeNavigation/master/art/awesome-navigation-style2-demo.gif)
+
 
 ## Adding to project
 
